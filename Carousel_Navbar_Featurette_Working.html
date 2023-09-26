@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+   
+    <title>Carousel_Navbar_Featurette_Working Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    /* create a base font size that everything else can go off */
+    html {
+      display: block;
+      font-size: 16px;
+    } 
+
+    /* make a container to hold carousel photos and make fit */
+    .carousel-Container {
+      width: 50rem;
+      height: 30rem;
+      overflow: hidden;
+}
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--bs-navbar-color);
+      font-weight: 500;
+    }
+
+    /* Hovered link */
+    a:hover {
+    color: var(--bs-navbar-hover-color);
+    }
+
+
+    ul, ol {
+    list-style: none;
+    }
+
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+      ul.navbar-nav {   
+        margin-top: 2rem;
+      } 
+      ul.navbar-nav li.nav-item {
+         margin-right: 2rem; /* Adjust the right margin as needed */
+         margin-bottom: 0; /* Remove margin-bottom */
+      }
+      a.lower-brand {
+        margin-top: 2rem;
+        margin-right: 2rem;
+        margin-left: 6rem;
+      }
+      /* taking the top margin out of the heading */
+      h2.featurette-heading.fw-normal.lh-1 {
+        margin-top: 0;
+      }
+
+      p.lead {
+        margin-top: 3rem;
+      }
+
+      figcaption.caption {
+        margin-top: 2rem;
+        margin-left: 5rem;
+      }
+
+      figcaption.caption.custom-caption {
+        margin-top: 2rem;
+        margin-left: 0rem;
+      }
+      
+      /*.carousel-item { */
+  /*      height: 40rem;  Set a fixed height for the carousel items */
+/*      } */
+
+      .carousel-item img {
+        width: 100rem;
+        height: 40rem;
+        object-fit: cover; /* Scale the image to cover the container while maintaining aspect ratio */
+        object-position: center; /* Center the image within the container */
+      }
+
+      a {
+      text-decoration: none;
+      color:rgba(255, 255, 255, 0.55);;
+      font-weight: 500;
+      }
+
+      /* Hovered link */
+      a:hover {
+      color: var(--bs-navbar-hover-color);
+      }
+
+
+      ul, ol {
+      list-style: none;
+      padding-left: 0rem;
+      }
+     }
+
+    
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+    
+  </style>
+  <!-- Custom styles for this template -->
+  <!-- <link href="C:/Users/conrad/Documents/Wintec%20stuff/wintec%202023/COMP602_Web_Development/Assignment_2/Ass_Website_Tester/Ass2Css/Ass2Css.css" rel="stylesheet"> -->
+  <!--  <link href="carousel.css" rel="stylesheet"> -->
+   <link href="../Ass2Css/Ass2Css.css" rel="stylesheet"> 
+
+  </head>
+  <body>
+   
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+           <a class="navbar-brand lower-brand mr-3" href="#">The Manhatten Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mb-2 mb-md-0 ">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#TheStory">The Story</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#TheOrigins">The Origins</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#ScienceBehind">The Science Behind</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#myCarousel">The Carousel</a>
+                </li></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#ThePersonnel">The Personenel</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#RandR">Resources and References</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#AboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#Contact">Contact Page</a>
+                </li>               
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <main>
+
+         
+      <!-- START THE FEATURETTES -->
+      <div class="container marketing">
+
+        <div id="TheStory" class="mt-5"> 
+        <hr class="featurette-divider">   
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">The Story </h2>
+            <h5  class="featurette-heading fw-normal lh-1 fs-1" >An account of a scientifically historic event for mankind, and an absolute gamechanger for World Wide Warfare.</h5>
+            <p  class="lead"> It was named 'The Manhatten Project' as it's first headquarters were located there. It originally had a budjet of $6000, but after the possibilities and repurcusions were realised, it became virtually limitless. It was estimated to cost 2 billion dollars in the mid 1940's, which converts to about 70 billion dollars in todays money.</p> 
+          </div>
+          <div class="col-md-5">
+            <figure>
+            <img src="../Images/AtomicCore_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+            <figcaption class="caption">An Atomic Core created during The Manhatten Project</figcaption>  
+            </figure>
+          </div>
+        </div>
+    
+        <div class="row featurette">
+            <p>The Manhattan Project was a research and development undertaking during World War II that produced the first nuclear weapons. It was led by the United States in collaboration with the United Kingdom and with support from Canada. From 1942 to 1946, the project was under the direction of Major General Leslie Groves of the U.S. Army Corps of Engineers. The nuclear physicist J. Robert Oppenheimer was the director of the Los Alamos Laboratory that designed the bombs. The Army component was designated the Manhattan District, as its first headquarters were in Manhattan; the name gradually superseded the official codename, Development of Substitute Materials, for the entire project. The project absorbed its earlier British counterpart, Tube Alloys. The Manhattan Project grew rapidly and employed nearly 130,000 people at its peak and cost nearly US$2 billion (equivalent to about $24 billion in 2021).[1] Over 90 percent of the cost was for building factories and to produce fissile material, with less than 10 percent for development and production of the weapons. Research and production took place at more than 30 sites across the United States, the United Kingdom, and Canada.</p>
+            <p>The project led to the development of two types of atomic bombs, both developed concurrently, during the war: a relatively simple gun-type fission weapon and a more complex implosion-type nuclear weapon. The Thin Man gun-type design proved impractical to use with plutonium, so a simpler gun-type design called Little Boy was developed that used uranium-235. Three methods were employed for uranium enrichment: electromagnetic, gaseous and thermal. In parallel with the work on uranium was an effort to produce plutonium. After the feasibility of the world's first artificial nuclear reactor, the Chicago Pile-1, was demonstrated in 1942 at the Metallurgical Laboratory in the University of Chicago, the project designed the X-10 Graphite Reactor and the production reactors at the Hanford Site, in which uranium was irradiated and transmuted into plutonium. The Fat Man plutonium implosion-type weapon was developed in a concerted design and development effort by the Los Alamos Laboratory.The project was also charged with gathering intelligence on the German nuclear weapon project. Through Operation Alsos, Manhattan Project personnel served in Europe, sometimes behind enemy lines, where they gathered nuclear materials and documents, and rounded up German scientists. Despite the Manhattan Project's tight security, Soviet atomic spies successfully penetrated the program.</p>
+            <p>The first nuclear device ever detonated was an implosion-type bomb during the Trinity test, conducted at New Mexico's Alamogordo Bombing and Gunnery Range on 16 July 1945. Little Boy and Fat Man bombs were used a month later in the atomic bombings of Hiroshima and Nagasaki, respectively, with Manhattan Project personnel serving as bomb assembly technicians and weaponeers on the attack aircraft. In the immediate postwar years, the Manhattan Project conducted weapons testing at Bikini Atoll as part of Operation Crossroads, developed new weapons, promoted the development of the network of national laboratories, supported medical research into radiology and laid the foundations for the nuclear navy. It maintained control over American atomic weapons research and production until the formation of the United States Atomic Energy Commission (UNAEC) in January 1947.</p>
+        </div>   
+        <hr class="featurette-divider">
+        </div><!-- This is the end of container marketing-->
+
+      <div class="container marketing">
+       <div id="TheOrigins">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <figure>
+            <img src="../Images/cyclotron.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+            <figcaption class="caption custom-caption">Enrico Fermi, John R. Dunning, and Dana P. Mitchell in front of the cyclotron in the basement of Pupin Hall at Columbia University, 1940</figcaption>  
+            </figure>
+          </div>
+          <div class="col-md-7">
+            <h3 class="featurette-heading fw-normal lh-1">The Origins</h3>
+            <h6 class="featurette-heading fw-normal lh-1 fs-1">The discovery of nuclear fission by German chemists Otto Hahn and Fritz Strassmann in 1938, and its theoretical explanation by Lise Meitner and Otto Frisch, made the development of an atomic bomb a theoretical possibility.</h6>
+            <p class="lead">There were fears that a German atomic bomb project would develop one first, especially among scientists who were refugees from Nazi Germany and other fascist countries</p>
+            <p> In August 1939, Hungarian-born physicists Leo Szilard and Eugene Wigner drafted the Einstein-Szilard letter, which warned of the potential development of "extremely powerful bombs of a new type". It urged the United States to acquire stockpiles of uranium ore and accelerate the research of Enrico Fermi and others into nuclear chain reactions.
+               They had it signed by Albert Einstein and delivered to President Franklin D. Roosevelt. Roosevelt called on Lyman Briggs of the National Bureau of Standards to head the Advisory Committee on Uranium to investigate the issues; Briggs met with Szilárd, Wigner and Edward Teller in October 1939. The committee reported back to Roosevelt in November that uranium "would provide a possible source of bombs with a destructiveness vastly greater than anything now known."
+               In February 1940, the U.S. Navy awarded Columbia University $6,000 in funding, most of which Fermi and Szilard spent on graphite.</p>
+          </div>
+          <div class="row featurette">   
+            <p>A team of Columbia professors including Fermi, Szilard, Eugene T. Booth and John Dunning created the first nuclear fission reaction in the Americas, verifying the work of Hahn and Strassmann. The same team subsequently built a series of prototype nuclear reactors (or "piles" as Fermi called them) in Pupin Hall at Columbia, but were not yet able to achieve a chain reaction. The Advisory Committee on Uranium became the National Defense Research Committee (NDRC) on Uranium when that organization was formed on 27 June 1940.
+              Briggs proposed spending $167,000 on research into uranium, particularly the uranium-235 isotope, and plutonium, which was discovered in 1940 at the University of California.[8][note 1] On 28 June 1941, Roosevelt signed Executive Order 8807, which created the Office of Scientific Research and Development (OSRD), with Vannevar Bush as its director. The office was empowered to engage in large engineering projects in addition to research. The NDRC Committee on Uranium became the S-1 Section of the OSRD; the word "uranium" was dropped for security reasons.
+              In Britain, Frisch and Rudolf Peierls at the University of Birmingham had made a breakthrough investigating the critical mass of uranium-235 in June 1939. Their calculations indicated that it was within an order of magnitude of 10 kilograms (22 lb), which was small enough to be carried by a bomber of the day. Their March 1940 Frisch-Peierls memorandum initiated the British atomic bomb project and its MAUD Committee, which unanimously recommended pursuing the development of an atomic bomb. In July 1940, Britain had offered to give the United States access to its research, and the Tizard Mission's John Cockcroft briefed American scientists on British developments. He discovered that the American project was smaller than the British, and not as advanced.
+              As part of the scientific exchange, the MAUD Committee's findings were conveyed to the United States. One of its members, the Australian physicist Mark Oliphant, flew to the US in late August 1941 and discovered that data provided by the MAUD Committee had not reached key American physicists. Oliphant set out to find out why the committee's findings were apparently being ignored. He met with the Uranium Committee and visited Berkeley, California, where he spoke persuasively to Ernest O. Lawrence. Lawrence was sufficiently impressed to commence his own research into uranium. He in turn spoke to James B. Conant, Arthur H. Compton and George B. Pegram. Oliphant's mission was therefore a success; key American physicists were now aware of the potential power of an atomic bomb.
+              On 9 October 1941, President Roosevelt approved the atomic program after he convened a meeting with Vannevar Bush and Vice President Henry A. Wallace. He created a Top Policy Group consisting of himself—although he never attended a meeting—Wallace, Bush, Conant, Secretary of War Henry L. Stimson, and the Chief of Staff of the Army, General George C. Marshall. Roosevelt chose the Army to run the project rather than the Navy, because the Army had more experience with management of large-scale construction. He agreed to coordinate the effort with that of the British and on 11 October sent a message to Prime Minister Winston Churchill, suggesting that they correspond on atomic matters.</p>
+          </div>
+            </div>  
+          </div>
+        </div>          
+        <div class="featurette-divider">
+       </div>
+      </div><!-- This is the end of container marketing-->
+
+  <div class="container marketing">
+    <div id="ScienceBehind">
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">The Science Behind the Bomb.</h2>
+        <h5 class="featurette-heading fw-normat lh-1 fs-1">A Laymans Definition of the Science behind the making of the Largest Explosion ever made.</h5>
+        <p class="lead">As the scientific world is on the cusp of being able to demonstate nuclear fisson in the Lab, for the great minds it becomes instantly apparent that this could be used to release a huge amount of energy, and hence the largest explosion that man has ever seen.</p>
+        <p>Fission is an elementary chemical interaction between subatomic particles. Nuclear fission is defined as the splitting of an atom by nucleus bombardment. Atoms consist of three subatomic particles: negatively charged electrons, positively charged protons, and neutrons, which have no electrical charge. Atomic nuclei are dense cores of atoms composed of neutrons and protons, and are thus positively charged. Chemical reactions, from basic acid-base titrations to nuclear fission, involve the collision of atomic particles.
+          Fission begins with the high-energy collision of neutrons with the nucleus of another atom.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <figure>
+        <img src="../Images/Bigboy.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+        <figcaption class="caption">Jumbo being shifted to Trinity</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p>
+      Protons cannot partake in nuclear bombardment because of the electrostatic repulsion between positively-charged protons and nuclei. For fission to proceed, a neutron fired at the atom must fuse with the nucleus, producing a less-stable isotope.
+      The heavy atom, chemically volatile, will split into two stable atoms, discharge neutrons, and generate energy (in the form of Gamma radiation). The neutrons released are free to collide and fuse with nuclei of other nearby atoms  a chain reaction ensues, progressing exponentially throughout the sample of atoms, releasing more and more heat radiation. It is this constant amplification of energy that constitutes the devastating power of an atomic weapon.If every atom were fissionable, there would be no stability to matter and the world would be an uninhabitable chaos of energy transformations. Thus, only certain isotopes of few atoms will undergo a fissile chain reaction. Nobel physicist Neils Bohr discovered that Uranium, the ninety-second element, is an example of a fissionable atom.[4] the predominant form of uranium has a mass number of 238 and is relatively stable; U-235, a rare isotope, easily undergoes nuclear fission and can sustain a chain reaction. If a neutron traveling at adequate velocity and the appropriate angle collides with a uranium-235 nucleus, the unstable nucleus absorbs the neutron, consequently increasing to an exceedingly unstable state. Instantly the U-236 splits into two atoms of different elements, emitting 2 neutrons that carry on the chain reaction, and liberating large quantities of gamma radiation.
+      Subsequent to John Dunning and Eugene Booths successful separation of uranium 235 from uranium 238 in 1941 [5], uranium became the leading example for fission research. As scientists probed further into the capabilities of fission, they began to visualize, as Fermi did, the awesome destructive potential of only a minute mass of uranium 235. Thus, the dream of a weapon with unmitigated atomic power was spawned.
+      With this basic knowledge of atomic chemistry and the motivation of a world crisis, the Manhattan project began in 1942. Two prominent challenges delayed the successful unleashing of nuclear energy: processing of sufficient fissionable material, and the actual design of a nuclear bomb that would maintain and maximize a fissile chain reaction. Dunning and Booth managed to separate the two isotopes of uranium before the institution of the Manhattan project, proving that it was indeed possible. But the level at which their research was performed was purely scientific; a project tasked with ending a world war required much more intensive and efficient processing. Additionally, no one had any experience constructing a dimensionally-feasible nuclear reactor in deployable size.
+      As the Manhattan team quickly learned, the relative abundance of uranium 235 was not only extremely small, but when found, uranium ore was nearly impossible to purify into U-235. Natural uranium ore is comprised of a mixture of isotopes 235 and 238. Typically, one percent of the mass of uranium ore being considered is composed of the unstable isotope, while the rest is relatively useless U-238.[6] Therefore, to develop the prophesized weapon, engineering innovations were essential. Ernest O. Lawrence of the University of California, Berkeley developed the first technique to isolate a practical amount of uranium 235, using a modified mass spectrometer.[7] Lawrences method dealt with the electromagnetic properties of atoms, an integration of chemistry and physics.
+      Uranium 235 is a lighter isotope than Uranium 238. Thus, when equal physical forces act on atoms of U-235 and U-238, the isotopes will behave simply as two different masses. Therefore, as Newtons laws describe, the force acting on the lighter mass will show greater affect on the motion of the mass than the force acting on the heavier mass. In Lawrences apparatus, the magnetic force exerted by an electromagnetic arch attracted the electrically charged portions of atoms, and thus, uranium atoms traveled along the raised arc. Uranium 235 atoms, naturally lighter than the stable isotope, would pass closer to the magnetic tract than the heavier U-238 atoms, and could thus be collected. To mobilize the uranium atoms into gaseous particles, fluorine gas was circulated over solid uranium ore, creating uranium tetrachloride gas. The gaseous particles were then passed across the arc multiple times, each trial gaining a more purified sample of uranium 235 tetrachloride.
+      To Lawrences chagrin, his method of uranium purification proved largely inefficient. Due to high maintenance costs and the time-consuming nature of the process, only one gram of uranium 235 was harvested after millions of dollars spent in production and repairs.[8] Lawrences design was quickly abandoned.
+      General Leslie Groves, director of the Manhattan Project, purchased land in Oak Ridge, Tennessee to pursue another proposed method of uranium separation. Centered on the theory of gaseous diffusion of uranium hexafluoride, principles of chemistry and physics were again assimilated in an attempt to accomplish a feat of engineering. Similarly, the technique Groves pursued dealt with the motions of particles of different masses. When contained in a porous vessel, gaseous particles will randomly collide and bounce until passing through a pore in the container  a process known as effusion. At constant temperature, all gaseous particles have equal kinetic energies, and therefore, through the properties of thermodynamics, less-massive particles move with higher velocity than heavier particles. When applied to effusion, lighter gases travel across a porous membrane faster than heavier gases. Uranium 235 hexafluoride, the lighter of the two isotopic gases, diffuses faster than U-238 hexafluoride. Over intervals of time, Groves concluded, this process could be used to separate uranium isotopes.
+      The foremost problem with this technique was the quality of materials used in construction. The masses of the two isotopes of uranium are so similar that the diffusion must be run in completely airtight conditions. Grease could not be used to seal the miles of tubing, however, because uranium hexafluoride reacts so quickly with organic compounds. Thus, materials engineering was incorporated to fabricate new plastics to assemble the contraption. The engineering efforts resulted in an effective material known as Teflon.[9] Higher quality porous membranes were essential to the process as well. The final product was a $100,000,000 facility consisting of thousands of consecutive membranes and diffusion tanks across miles of Teflon tubing  an engineering masterpiece.[10] Due to restrictions of the budget, however, construction on the Oak Ridge plant was only carried far enough to produce a mixture of the two isotopes, half stable, half unstable.[11] This end product was subsequently fed into other series of separation techniques, becoming the main source of U-235.
+      Following Bohrs discovery of fissionable uranium in 1941, Glen Seaborg capitalized on years of research by the discovery of the ninety-fourth element, plutonium.[12] Later, in 1942, another team of researches concluded that, although not as fissile as uranium 235, an isotope of plutonium, Pu-239 could sustain a chain reaction.[13] Furthermore, it was found that uranium 238, if exposed to alpha particles (Helium nuclei) in a reactor for extended periods of time, could actually increase in atomic number to become plutonium 239. The discovery of this correlation between stable uranium and fissionable plutonium led to rapid advances in the production of atomic weaponry: not only was another fissile material available, but a method for its accumulation was already conceived.
+      </p>
+
+      </div>  
+  
+      <hr class="featurette-divider">
+
+    </div> <!-- /.container or the class container marketing -->
+  </div>
+        <!-- This is code for the Carousel -->
+      <div class="container marketing">
+
+        <div id="myCarousel" class="carousel slide mb-6"> <!-- data-bs-ride="carousel"-->
+          <div id="carousel-Container">   
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+              <div class="carousel-item active"> 
+                <img src="../Images/Hiroshima_1.jpg" class="img-fluid" alt="Image 1">                                          
+              </div>
+             
+              <div class="carousel-item">
+                <img src="../Images/Strange_Cloud.jpg" class="img-fluid" alt="Image 1">   
+              </div>
+
+              <div class="carousel-item">
+                <img src="../Images/Mushroom_Cloud_2.jpg" class="img-fluid" alt="Image 1"> 
+              </div>
+
+              <div class="carousel-item">
+                <img src="../Images/Mushroom_Cloud_Bikini_Atoll.jpg" class="img-fluid" alt="Image 1"> 
+              </div>
+
+              <div class="carousel-item">
+                <img src="../Images/Explosion_1.jpg" class="img-fluid" alt="Image 1"> 
+              </div>
+
+              <div class="carousel-item">
+                <img src="../Images/WaterCloud.jpg" class="img-fluid" alt="Image 1"> 
+              </div>
+
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            </div>  
+         </div>
+        </div>
+      </div>
+        <!-- Other Featurettes-->
+        <div class="container marketing">  
+         <div id="ThePersonnel">
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading fw-normal lh-1">The Personnel</h2>
+              <h5 class="lead">At its peak in June 1944, the Manhattan Project employed about 129,000 workers, of whom 84,500 were construction workers, 40,500 were plant operators and 1,800 were military personnel. </h5>
+              <p> As construction activity declined, the workforce fell to 100,000 a year later, but the number of military personnel increased to 5,600. Procuring the required numbers of workers, especially highly skilled workers, in competition with other vital wartime programs proved very difficult.[234] Due to high turnover, over 500,000 people worked on the project.[235] In 1943, Groves obtained a special temporary priority for labor from the War Manpower Commission. In March 1944, both the War Production Board and the War Manpower Commission gave the project their highest priority.[236] The Kansas commission director stated that from April to July 1944 every qualified applicant in the state who visited a United States Employment Service office was urged to work at the Hanford Site. No other job was offered until the applicant definitively rejected the offer.[237]</p>
+              <p>Tolman and Conant, in their role as the project's scientific advisers, drew up a list of candidate scientists and had them rated by scientists already working on the project. Groves then sent a personal letter to the head of their university or company asking for them to be released for essential war work.[238]
+                 One source of skilled personnel was the Army itself, particularly the Army Specialized Training Program. In 1943, the MED created the Special Engineer Detachment (SED), with an authorized strength of 675. Technicians and skilled workers drafted into the Army were assigned to the SED. Another source was the Women's Army Corps (WAC). Initially intended for clerical tasks handling classified material, the WACs were soon tapped for technical and scientific tasks as well.[239] On 1 February 1945, all military personnel assigned to the MED, including all SED detachments, were assigned to the 9812th Technical Service Unit, except at Los Alamos, where military personnel other than SED, including the WACs and Military Police, were assigned to the 4817th Service Command Unit.[240]</p>
+              <p>An Associate Professor of Radiology at the University of Rochester School of Medicine, Stafford L. Warren, was commissioned as a colonel in the United States Army Medical Corps, and appointed as chief of the MED's Medical Section and Groves' medical advisor.</p>
+            </div>
+            <div class="col-md-5">
+              <figure>
+                <img src="../Images/just_Opp_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A picture of Oppenheimer">
+                <figcaption class="caption">J.Robert Oppenheimer</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="row featurette">
+            <p>  Warren's initial task was to staff hospitals at Oak Ridge, Richland and Los Alamos.[241] The Medical Section was responsible for medical research, but also for the MED's health and safety programs. This presented an enormous challenge, because workers were handling a variety of toxic chemicals, using hazardous liquids and gases under high pressures, working with high voltages, and performing experiments involving explosives, not to mention the largely unknown dangers presented by radioactivity and handling fissile materials.[242] Yet in December 1945, the National Safety Council presented the Manhattan Project with the Award of Honor for Distinguished Service to Safety in recognition of its safety record. Between January 1943 and June 1945, there were 62 fatalities and 3,879 disabling injuries—about 62 percent below the rate of private industry.[243]</p>
+            <p>Byron Price, head of the Office of Censorship, called the Manhattan Project the best-kept secret of the war.[244] In 1945 Life estimated that before the Hiroshima and Nagasaki bombings "probably no more than a few dozen men in the entire country knew the full meaning of the Manhattan Project, and perhaps only a thousand others even were aware that work on atoms was involved." The magazine wrote that the more than 100,000 others employed with the project "worked like moles in the dark". Warned that disclosing the project's secrets was punishable by 10 years in prison or a fine of US$10,000 (equivalent to $163,000 in 2022), they monitored "dials and switches while behind thick concrete walls mysterious reactions took place" without knowing the purpose of their jobs.[245][246][247]
+              In December 1945 the US Army published a secret report assessing the security apparatus surrounding the Manhattan Project. The report states that the project was "more drastically guarded than any other highly secret war development." The surrounding security infrastructure was so vast and thorough that in the early days of the project in 1943, investigators vetted 400,000 potential employees and 600 companies for potential security risks.[248]</p>
+          </div>
+
+          <hr class="featurette-divider">
+         </div>
+        </div>
+        <!-- The end of container marketing-->
+
+        <div class="container marketing">
+         <div id="RandR">
+          <h2 class="featurette-heading fw-normal lh-1">Resources and References</h2>
+          <h4 class="lead">Official APA Referencing</h4>
+          <b>The Story</b>
+          <p>Manhattan Project. (2023, September 24). In Wikipedia. https://en.wikipedia.org/wiki/Manhattan_Project.</p>
+          <b>The Origins</b>
+          <p>Manhattan Project. (2023, September 24). In Wikipedia. https://en.wikipedia.org/wiki/Manhattan_Project.</p>
+          <b>The Science Behind</b>
+          <p>Manhattan Project. (2023, September 24). In Wikipedia. https://en.wikipedia.org/wiki/Manhattan_Project.</p>
+          <b>The Gallery</b>
+          <p>Picture 1 (Aftermath of the bombing at Hiroshima). Manhattan Project. (2023, September 23). Britannica. https://www.britannica.com/event/Manhattan-Project.</p>
+          <p>Picture 2 (). Centre for Arms Control and Non-Poliferation.(2021, July 16). Armscontrollcenter. https://armscontrolcenter.org/quotes-from-trinity-test-observers/.</p>
+          <p>Picture 3 (Trinity Test atom bomb 9 seconds after detonation, 1945). Co45/6785. (2023). Science Photo Library. https://www.sciencephoto.com/media/1006828/view/trinity-test-atom-bomb-9-seconds-after-detonation-1945</p>
+          <p>Picture 4 (Operation Crossroads, Bikini Atoll, July 1, 1946, South Pacific). Manhattan Project.(2023, September 23). Britannica. https://www.britannica.com/event/Manhattan-Project</p>
+          <p>Picture 5 (Footage of the Trinity Test). Manhattan Project Scientists. (2018, April 2). WorldAtlas. https://www.worldatlas.com/articles/manhattan-project-scientists</p>
+          <p>Picture 6 (The Baker test during operation Crossroads). 7 Surprising Facts about the Nuclear Bomb Tests at Bikini Atoll. (2022, May 12). History. https://www.history.com/news/nuclear-bomb-tests-bikini-atoll-facts.</p>
+          <b>The Personnel</b>
+          <p>Manhatten Project. (2023, September 24). In Wikipedia. https://en.wikipedia.org/wiki/Manhattan_Project</p>
+          <hr class="featurette-divider">
+         </div>
+        </div>
+
+        <div class="container marketing">
+         <div id="AboutUs">
+          <h2 class="featurette-heading fw-normal lh-1">About Us</h2>
+          <p></p>
+          <h4>Logan and Raines' Historical Society</h4>
+          <p></p>
+          <p>These two philanthropists formed this society in 2020. There aim was to increase the availability and ease for everyone in the world to have access to major historical events which have affected Mankind. They believe that historical education is a must for people to learn from the past, and not repeat the mistakes that have happened.</p>
+          <p></p>
+          <p>Both Logan and Raine have received awards for their dedication to History.</p>
+          <p></p>
+          <p>This site was Developed by ‘Conrads Web Designs’, and was signed off in accordance with the Societies Direction.</p>
+          <hr class="featurette-divider">
+         </div>
+        </div>
+
+        <!-- This is the Form for making Contact-->
+        <div id="Contact">
+        <div class="container mb-5">
+         <div class="row justify-content-center">
+            <div class="col-md-4">
+              <div class="mb-3 text-align:left;">
+                <h4>Contact Us</h4>
+                <p>If you wish to make contact with the owners for any reason, please fill out the form and we will contact you as soon as possible.</p>
+                <p></p>
+                <h6>Email Address:</h6>
+                <p>put the email address here</p>
+                <p></p>
+                <h6>Physical Address</h6>
+                <p>put the physical address here</p>
+              </div>
+            </div>
+
+
+            <div class="col-md-1">
+              <p></p>
+            </div>
+
+          <div class="col-md-6">
+           <form id="contactForm">
+            <div class="mb-3 mt-3">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label for="FormInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="FormInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email Address">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="phone">Phone Number:</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+            </div>
+      
+            <div class="mb-3">
+              <label for="FormMessageTextarea1" class="form-label">Message Area</label>
+              <textarea class="form-control" id="FormMessageTextarea1" rows="3" placeholder="Enter a Message"></textarea>
+            </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+           </form>
+           <div id="successMessage" style="display:none;color:white;">Form submitted successfully</div>
+          </div>
+         </div>
+        </div>
+        
+        </div>  
+          <!-- This is the end of the Form-->    
+
+    </main>
+
+    <footer class="ms-5 me-5">
+      <hr class="featurette-divider">
+     <div class="row">
+      <div class="col-md-3 me-5 ms-5">
+      <p>&copy; 2023 Logan and Raines Company. All Rights Reserved</p>
+      </div>
+      <div class="col-md-3 ms-5">
+      <h5>Social Media</h5>
+      <a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://nz.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.pinterest.com"><i class="fa-brands fa-pinterest"></i></a>
+      <a href="https://www.snapchat.com"><i class="fa-brands fa-snapchat"></i></a>
+      </div>
+      <div class="col-md-3">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="#TheStory">The Story</a></li>
+          <li><a href="#TheOrigins">The Origins</a></li>
+          <li><a href="#ScienceBehind">The Science Behind</a></li>
+          <li><a href="#myCarousel">The Carousel</a></li>
+          <li><a href="#ThePersonnel">The Personnel</a></li>
+          <li><a href="#RandR">Resources and References</a></li>
+          <li><a href="#AboutUs">About Us</a></li>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-1">
+        <p class="float-end"><a href="#">Back to top</a></p>
+      </div>
+      </div>
+     </div>
+    </footer>
+ 
+    <script>
+      // JavaScript to adjust scrolling offset
+      document.addEventListener('DOMContentLoaded', function () {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const offset = navbarHeight + 50; // Adjust the 50 pixels as needed
+
+        //Function to handle scrolling
+        function scrollToTarget(targetId){
+          const targetSection = document.getElementById(targetId);
+          if (targetSection){
+           const targetOffset = targetSection.offsetTop - offset;
+           window.scrollTo({
+            top:targetOffset,
+            behavior:'smooth'
+           }); 
+          }
+        }
+
+        // Add an event Listener to all navbar links
+        const navLinks = document.querySelectorAll('.navbar a');
+        navLinks.forEach(function(link){
+          link.addEventListener('click',function(e){
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            scrollToTarget(targetId);
+          });
+        });
+
+        // Add an event Listener to all footer links
+        const footerLinks = document.querySelectorAll('footer a');
+        footerLinks.forEach(function(link){
+          link.addEventListener('click',function(e){
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            scrollToTarget(targetId);
+          });
+        });
+      });
+       
+    </script>    
+      <script src="../JavaScript/Ass2JS.js"></script>  
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://kit.fontawesome.com/599f11b2b1.js" crossorigin="anonymous"></script>
+  </body>
+</html>
