@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+   
+    <title>Carousel_Navbar_Featurette_Working Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    /* create a base font size that everything else can go off */
+    html {
+      display: block;
+      font-size: 16px;
+    } 
+
+    /* make a container to hold carousel photos and make fit */
+    .carousel-Container {
+      width: 50rem;
+      height: 30rem;
+      overflow: hidden;
+}
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--bs-navbar-color);
+      font-weight: 500;
+    }
+
+    /* Hovered link */
+    a:hover {
+    color: var(--bs-navbar-hover-color);
+    }
+
+
+    ul, ol {
+    list-style: none;
+    }
+
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+      ul.navbar-nav {   
+        margin-top: 2rem;
+      } 
+      ul.navbar-nav li.nav-item {
+         margin-right: 2rem; /* Adjust the right margin as needed */
+         margin-bottom: 0; /* Remove margin-bottom */
+      }
+      a.lower-brand {
+        margin-top: 2rem;
+        margin-right: 2rem;
+        margin-left: 6rem;
+      }
+      /* taking the top margin out of the heading */
+      h2.featurette-heading.fw-normal.lh-1 {
+        margin-top: 0;
+      }
+
+      p.lead {
+        margin-top: 3rem;
+      }
+
+      figcaption.caption {
+        margin-top: 4rem;
+        margin-left: 5rem;
+      }
+      
+      /*.carousel-item { */
+  /*      height: 40rem;  Set a fixed height for the carousel items */
+/*      } */
+
+      .carousel-item img {
+        width: 100rem;
+        height: 40rem;
+        object-fit: cover; /* Scale the image to cover the container while maintaining aspect ratio */
+        object-position: center; /* Center the image within the container */
+      }
+
+      a {
+      text-decoration: none;
+      color:rgba(255, 255, 255, 0.55);;
+      font-weight: 500;
+      }
+
+      /* Hovered link */
+      a:hover {
+      color: var(--bs-navbar-hover-color);
+      }
+
+
+      ul, ol {
+      list-style: none;
+      padding-left: 0rem;
+      }
+     }
+
+    
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+    
+  </style>
+  <!-- Custom styles for this template -->
+  <!-- <link href="C:/Users/conrad/Documents/Wintec%20stuff/wintec%202023/COMP602_Web_Development/Assignment_2/Ass_Website_Tester/Ass2Css/Ass2Css.css" rel="stylesheet"> -->
+  <!--  <link href="carousel.css" rel="stylesheet"> -->
+   <link href="../Ass2Css/Ass2Css.css" rel="stylesheet"> 
+
+</head>
+
+<header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+       <a class="navbar-brand lower-brand mr-3" href="#">The Manhatten Project</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mb-2 mb-md-0 ">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#TheStory">The Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ScienceBehind">The Science Behind</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">The Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resources and 'References</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contact">Contact Page</a>
+            </li>               
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<body>
+
+    <div class="container marketing">
+
+    <div id="TheStory" class="mt-5"> 
+    <hr class="featurette-divider">   
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">The Story </h2>
+        <h5  class="featurette-heading fw-normal lh-1 fs-1" >An account of a scientifically historic event for mankind, and an absolute gamechanger for World Wide Warfare.</h5>
+        <p  class="lead"> It was named 'The Manhatten Project' as it's first headquarters were located there. It originally had a budjet of $6000, but after the possibilities and repurcusions were realised, it became virtually limitless. It was estimated to cost 2 billion dollars in the mid 1940's, which converts to about 70 billion dollars in todays money.</p> 
+      </div>
+      <div class="col-md-5">
+        <figure>
+        <img src="../Images/AtomicCore_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+        <figcaption class="caption">An Atomic Core created during The Manhatten Project</figcaption>  
+        </figure>
+      </div>
+    </div>
+
+    <div class="row featurette">
+        <p>The Manhattan Project was a research and development undertaking during World War II that produced the first nuclear weapons. It was led by the United States in collaboration with the United Kingdom and with support from Canada. From 1942 to 1946, the project was under the direction of Major General Leslie Groves of the U.S. Army Corps of Engineers. The nuclear physicist J. Robert Oppenheimer was the director of the Los Alamos Laboratory that designed the bombs. The Army component was designated the Manhattan District, as its first headquarters were in Manhattan; the name gradually superseded the official codename, Development of Substitute Materials, for the entire project. The project absorbed its earlier British counterpart, Tube Alloys. The Manhattan Project grew rapidly and employed nearly 130,000 people at its peak and cost nearly US$2 billion (equivalent to about $24 billion in 2021).[1] Over 90 percent of the cost was for building factories and to produce fissile material, with less than 10 percent for development and production of the weapons. Research and production took place at more than 30 sites across the United States, the United Kingdom, and Canada.</p>
+        <p>The project led to the development of two types of atomic bombs, both developed concurrently, during the war: a relatively simple gun-type fission weapon and a more complex implosion-type nuclear weapon. The Thin Man gun-type design proved impractical to use with plutonium, so a simpler gun-type design called Little Boy was developed that used uranium-235. Three methods were employed for uranium enrichment: electromagnetic, gaseous and thermal. In parallel with the work on uranium was an effort to produce plutonium. After the feasibility of the world's first artificial nuclear reactor, the Chicago Pile-1, was demonstrated in 1942 at the Metallurgical Laboratory in the University of Chicago, the project designed the X-10 Graphite Reactor and the production reactors at the Hanford Site, in which uranium was irradiated and transmuted into plutonium. The Fat Man plutonium implosion-type weapon was developed in a concerted design and development effort by the Los Alamos Laboratory.The project was also charged with gathering intelligence on the German nuclear weapon project. Through Operation Alsos, Manhattan Project personnel served in Europe, sometimes behind enemy lines, where they gathered nuclear materials and documents, and rounded up German scientists. Despite the Manhattan Project's tight security, Soviet atomic spies successfully penetrated the program.</p>
+        <p>The first nuclear device ever detonated was an implosion-type bomb during the Trinity test, conducted at New Mexico's Alamogordo Bombing and Gunnery Range on 16 July 1945. Little Boy and Fat Man bombs were used a month later in the atomic bombings of Hiroshima and Nagasaki, respectively, with Manhattan Project personnel serving as bomb assembly technicians and weaponeers on the attack aircraft. In the immediate postwar years, the Manhattan Project conducted weapons testing at Bikini Atoll as part of Operation Crossroads, developed new weapons, promoted the development of the network of national laboratories, supported medical research into radiology and laid the foundations for the nuclear navy. It maintained control over American atomic weapons research and production until the formation of the United States Atomic Energy Commission (UNAEC) in January 1947.</p>
+    </div>
+
+    <hr class="featurette-divider">
+      <div class="col-md-5">
+        <figure>
+        <img src="../Images/AtomicCore_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+        <figcaption class="caption">An Atomic Core created during The Manhatten Project</figcaption>  
+        </figure>
+      </div>
+      <div class="col-md-7">
+        
+      </div>
+
+    <div class="row featurette">
+
+    </div>
+
+    <hr class="featurette-divider"> 
+
+    </div> 
+    
+</body>
+    <footer class="ms-5 me-5">
+        <div class="row">
+         <div class="col-md-3 me-5 ms-5">
+         <p>&copy; 2023 Logan and Raines Company. All Rights Reserved</p>
+         </div>
+         <div class="col-md-3 ms-5">
+         <h5>Social Media</h5>
+         <a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
+         <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+         <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+         <a href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i></a>
+         <a href="https://nz.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+         <a href="https://www.pinterest.com"><i class="fa-brands fa-pinterest"></i></a>
+         <a href="https://www.snapchat.com"><i class="fa-brands fa-snapchat"></i></a>
+         </div>
+         <div class="col-md-3">
+           <h5>Links</h5>
+           <ul>
+             <li><a href="#TheStory">The Story</a></li>
+             <li><a href="#ScienceBehind">The Science Behind</a></li>
+             <li><a href="#Contact">Contact</a></li>
+           </ul>
+         </div>
+         <div class="col-md-1">
+           <p class="float-end"><a href="#">Back to top</a></p>
+         </div>
+         </div>
+        </div>
+       </footer>
+    
+       <script>
+         // JavaScript to adjust scrolling offset
+         document.addEventListener('DOMContentLoaded', function () {
+           const navbarHeight = document.querySelector('.navbar').offsetHeight;
+           const offset = navbarHeight + 50; // Adjust the 50 pixels as needed
+       
+           // Add an event listener to all navbar links
+           const navLinks = document.querySelectorAll('.navbar a');
+           navLinks.forEach(function (link) {
+             link.addEventListener('click', function (e) {
+               e.preventDefault();
+               const targetId = this.getAttribute('href').substring(1);
+               const targetSection = document.getElementById(targetId);
+               if (targetSection) {
+                 const targetOffset = targetSection.offsetTop - offset;
+                 window.scrollTo({
+                   top: targetOffset,
+                   behavior: 'smooth'
+                 });
+               }
+             });
+           });
+         });
+
+</script>    
+<script src="../JavaScript/Ass2JS.js"></script>  
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/599f11b2b1.js" crossorigin="anonymous"></script>
+
+</html>
