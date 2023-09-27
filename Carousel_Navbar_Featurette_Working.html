@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+  <head><script src="./assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
 
@@ -180,7 +180,7 @@
   <!-- Custom styles for this template -->
   <!-- <link href="C:/Users/conrad/Documents/Wintec%20stuff/wintec%202023/COMP602_Web_Development/Assignment_2/Ass_Website_Tester/Ass2Css/Ass2Css.css" rel="stylesheet"> -->
   <!--  <link href="carousel.css" rel="stylesheet"> -->
-   <link href="../Ass2Css/Ass2Css.css" rel="stylesheet"> 
+   <link href="./AssCss/Ass2Css.css" rel="stylesheet"> 
 
   </head>
   <body>
@@ -239,7 +239,7 @@
           </div>
           <div class="col-md-5">
             <figure>
-            <img src="../Images/AtomicCore_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+            <img src="./Images/AtomicCore_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
             <figcaption class="caption">An Atomic Core created during The Manhatten Project</figcaption>  
             </figure>
           </div>
@@ -258,7 +258,7 @@
         <div class="row featurette">
           <div class="col-md-5">
             <figure>
-            <img src="../Images/cyclotron.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+            <img src="./Images/cyclotron.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
             <figcaption class="caption custom-caption">Enrico Fermi, John R. Dunning, and Dana P. Mitchell in front of the cyclotron in the basement of Pupin Hall at Columbia University, 1940</figcaption>  
             </figure>
           </div>
@@ -297,7 +297,7 @@
       </div>
       <div class="col-md-5 order-md-1">
         <figure>
-        <img src="../Images/Bigboy.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
+        <img src="./Images/Bigboy.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A large explosion">
         <figcaption class="caption">Jumbo being shifted to Trinity</figcaption>
         </figure>
       </div>
@@ -339,27 +339,27 @@
             <div class="carousel-inner">
 
               <div class="carousel-item active"> 
-                <img src="../Images/Hiroshima_1.jpg" class="img-fluid" alt="Image 1">                                          
+                <img src="./Images/Hiroshima_1.jpg" class="img-fluid" alt="Image 1">                                          
               </div>
              
               <div class="carousel-item">
-                <img src="../Images/Strange_Cloud.jpg" class="img-fluid" alt="Image 1">   
+                <img src="./Images/Strange_Cloud.jpg" class="img-fluid" alt="Image 1">   
               </div>
 
               <div class="carousel-item">
-                <img src="../Images/Mushroom_Cloud_2.jpg" class="img-fluid" alt="Image 1"> 
+                <img src="./Images/Mushroom_Cloud_2.jpg" class="img-fluid" alt="Image 1"> 
               </div>
 
               <div class="carousel-item">
-                <img src="../Images/Mushroom_Cloud_Bikini_Atoll.jpg" class="img-fluid" alt="Image 1"> 
+                <img src="./Images/Mushroom_Cloud_Bikini_Atoll.jpg" class="img-fluid" alt="Image 1"> 
               </div>
 
               <div class="carousel-item">
-                <img src="../Images/Explosion_1.jpg" class="img-fluid" alt="Image 1"> 
+                <img src="./Images/Explosion_1.jpg" class="img-fluid" alt="Image 1"> 
               </div>
 
               <div class="carousel-item">
-                <img src="../Images/WaterCloud.jpg" class="img-fluid" alt="Image 1"> 
+                <img src="./Images/WaterCloud.jpg" class="img-fluid" alt="Image 1"> 
               </div>
 
             </div>
@@ -392,7 +392,7 @@
             </div>
             <div class="col-md-5">
               <figure>
-                <img src="../Images/just_Opp_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A picture of Oppenheimer">
+                <img src="./Images/just_Opp_1.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="A picture of Oppenheimer">
                 <figcaption class="caption">J.Robert Oppenheimer</figcaption>
               </figure>
             </div>
@@ -576,10 +576,19 @@
           });
         });
       });
+
+      document.addEventListener('DOMContentLoaded', function () {
+      // Get the HTML element with the data-bs-theme attribute
+      var htmlElement = document.querySelector('html');
+
+      // Set the data-bs-theme attribute to "dark"
+      htmlElement.setAttribute('data-bs-theme', 'dark');
+      });
+
        
     </script>    
-      <script src="../JavaScript/Ass2JS.js"></script>  
-      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="./JavaScript/Ass2JS.js"></script>  
+      <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://kit.fontawesome.com/599f11b2b1.js" crossorigin="anonymous"></script>
   </body>
 </html>
