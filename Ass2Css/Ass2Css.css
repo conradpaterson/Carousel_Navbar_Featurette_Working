@@ -5,17 +5,29 @@
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  color: rgb(var(--bs-tertiary-color-rgb));
+  color:var(--bs-nav-link-color);
 }
 
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
+
+
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
 }
+
+
+
+/* make the photos fit properly */
+/* .carousel-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;*/ /*crop and scale the image to cover the entire container */
+/*}*/
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
@@ -23,9 +35,9 @@ body {
 }
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 38rem;
-}
+/*.carousel-item {
+  height: 40rem;
+} */
 
 
 /* MARKETING CONTENT
@@ -49,6 +61,8 @@ body {
 
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin-left: 1rem;
+  margin-right: 2rem;
 }
 
 /* Thin out the marketing headings */
@@ -77,6 +91,6 @@ body {
 
 @media (min-width: 62em) {
   .featurette-heading {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 }
